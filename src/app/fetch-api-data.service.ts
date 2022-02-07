@@ -18,7 +18,12 @@ export class FetchApiDataService {
   // Making the api call for the user registration endpoint
   public userRegistration(userDetails: any): Observable<any> {
     console.log(userDetails);
-    return this.http.post(apiUrl + 'users', userDetails).pipe(
+    return this.http.post(apiUrl + 'users', userDetails, {
+      headers: new HttpHeaders(
+        {
+          "Content-Type": 'application/json',
+        })
+    }).pipe(
       catchError(this.handleError)
     );
   }
@@ -178,12 +183,13 @@ export class FetchApiDataService {
 
 
   private handleError(error: HttpErrorResponse): any {
+    console.log(error);
     if (error.error instanceof ErrorEvent) {
       console.error('Some error occurred:', error.error.message);
     } else {
       console.error(
         `Error Status code ${error.status}, ` +
-        `Error body is: ${error.error}`);
+        `Error body is: ${error.error.errors}`);
     }
     return throwError(
       'Something bad happened; please try again later.');
