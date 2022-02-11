@@ -1,0 +1,18 @@
+<div class='navbar'>
+    <div class='nav-container' style="text-align: center;">
+        <button mat-button class='app-title' routerLink='/movies'>
+            myFlix
+        </button>
+        <div class='nav-links'>
+            <button mat-button class='profile' routerLink='/movies'>
+                Movies
+            </button>
+            <button mat-button class='profile' (click)='goToProfile()'>
+                Profile
+            </button>
+            <button mat-button class='profile' (click)='logout()'>
+                Logout
+            </button>
+        </div>
+    </div>
+</div>
