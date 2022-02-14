@@ -22,28 +22,12 @@ export class NavigationComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  /**
-   * opens modal with user details
-   */
+  /* opens modal with user details
+
   movies(): void {
     this.router.navigate(['movies']);
   }
-
-  /**
-   * Navigates to the profile page.
-   */
-  goToProfile(): void {
-    this.dialog.open(UserProfileComponent, {
-      width: '500px'
-    });
-  }
-
-  goToFavourites(): void {
-    this.dialog.open(FavoritesComponent, {
-      width: '100%'
-    });
-  }
-
+  */
 
   logout(): void {
     localStorage.clear(); // Clears the local storage so the logged out user can no longer use protected routes

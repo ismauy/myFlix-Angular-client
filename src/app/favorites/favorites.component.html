@@ -1,1 +1,27 @@
-<p>favorites works!</p>
+<div style="display: flex; ">
+    <mat-card style="flex: 1 1 auto;">
+        <mat-card-header>
+            <mat-card-title>
+                <h2>Favorite Movies</h2>
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content style="overflow-x: auto;">
+            <div style="display: flex; flex-wrap: wrap;">
+                <mat-card *ngFor="let movie of favorites;" style="flex: 1 1 auto;">
+                    <mat-card-header>
+                        <mat-card-title>{{movie.Title}}</mat-card-title>
+                        <mat-card-subtitle>Directed by: {{movie.Director.Name}}</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <img src={{movie.ImagePath}} alt={{movie.Title}} />
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <button mat-icon-button color="warn" (click)="deleteFavorite(movie)">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
