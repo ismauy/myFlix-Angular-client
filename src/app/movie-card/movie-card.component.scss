@@ -1,11 +1,13 @@
 .mat-card-content {
-    max-height: 450px;
+    max-height: 500px;
+    min-width: 315px;
 }
 
 img {
-    max-height: 450px;
+    max-height: 500px;
 }
 
 .mat-card {
-    margin: 20px;
+    margin: 15px;
+    max-width: 335px;
 }

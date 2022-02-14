@@ -26,6 +26,7 @@ import { FavoritesComponent } from './favorites/favorites.component';
 import { DirectorComponent } from './director/director.component';
 import { GenreComponent } from './genre/genre.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { DescriptionComponent } from './description/description.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
@@ -49,7 +50,8 @@ const appRoutes: Routes = [
     FavoritesComponent,
     DirectorComponent,
     GenreComponent,
-    NavigationComponent
+    NavigationComponent,
+    DescriptionComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

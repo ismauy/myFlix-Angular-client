@@ -17,7 +17,6 @@ export class FetchApiDataService {
   }
   // Making the api call for the user registration endpoint
   public userRegistration(userDetails: any): Observable<any> {
-    console.log(userDetails);
     return this.http.post(apiUrl + 'users', userDetails, {
       headers: new HttpHeaders(
         {
@@ -30,7 +29,6 @@ export class FetchApiDataService {
 
   // the API call for the user login endpoint 
   public userLogin(userCredentials: any): Observable<any> {
-    console.log(userCredentials);
     return this.http.post(apiUrl + 'login', userCredentials).pipe(
       catchError(this.handleError)
     );
@@ -107,9 +105,10 @@ export class FetchApiDataService {
   }
 
   // the API call for getting a user's favorites movies
-  getUserFavorites(userId: any): Observable<any> {
+  getUserFavorites(): Observable<any> {
     const token = localStorage.getItem('token');
-    return this.http.get(apiUrl + 'users/' + userId + '/favorites', {
+    let user = JSON.parse(localStorage.getItem('user') || '');
+    return this.http.get(apiUrl + 'users/' + user._id + '/favorites', {
       headers: new HttpHeaders(
         {
           Authorization: 'Bearer ' + token,
@@ -122,9 +121,9 @@ export class FetchApiDataService {
 
   // the API call for adding movies to a user's favorites
   addFavoriteMovie(movieId: any): Observable<any> {
-    const userId = localStorage.getItem('userId')
+    let user = JSON.parse(localStorage.getItem('user') || '');
     const token = localStorage.getItem('token');
-    return this.http.patch(apiUrl + 'users/' + userId + '/movies/' + movieId, {
+    return this.http.patch(apiUrl + 'users/' + user._id + '/favorites/' + movieId, '', {
       headers: new HttpHeaders(
         {
           Authorization: 'Bearer ' + token,
@@ -169,7 +168,7 @@ export class FetchApiDataService {
   deleteFavoriteMovie(movieId: any): Observable<any> {
     let user = JSON.parse(localStorage.getItem('user') || '');
     const token = localStorage.getItem('token');
-    return this.http.delete(apiUrl + 'users/' + user._id + '/movies/' + movieId, {
+    return this.http.delete(apiUrl + 'users/' + user._id + '/favorites/' + movieId, {
       headers: new HttpHeaders(
         {
           Authorization: 'Bearer ' + token,

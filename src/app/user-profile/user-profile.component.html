@@ -1,20 +1,21 @@
-<mat-card>
-    <mat-card-header>
-        <mat-card-title>
-            <h2>Your Profile</h2>
-        </mat-card-title>
-    </mat-card-header>
-    <mat-card-content class="card-content">
-        <p><b>Username</b>: {{ user.Username }}</p>
-        <p><b>Email</b>: {{ user.Email }}</p>
-        <p><b>Birth</b> Date: {{ user.Birthday | date: "MM/dd/yyyy":"UTC" }}</p>
-    </mat-card-content>
-    <mat-card-actions>
-        <button class="float-right" mat-raised-button color="basic" (click)="openEditProfileDialog()">
-            Edit Profile
-        </button>
-        <button mat-raised-button color="warn" (click)="openFavouritesDialog()">
-            Favourite Movies
-        </button>
-    </mat-card-actions>
-</mat-card>
+<app-navigation></app-navigation>
+<div style="justify-content: center; width: 100%; ">
+    <mat-card style="margin-left: 20px; margin-right: 20px;">
+        <mat-card-header>
+            <mat-card-title>
+                <h2>Your Profile</h2>
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="card-content">
+            <p><b>Username</b>: {{ user.Username }}</p>
+            <p><b>Email</b>: {{ user.Email }}</p>
+            <p><b>Birth</b> Date: {{ user.Birthday | date: "MM/dd/yyyy":"UTC" }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button class="float-right" mat-raised-button color="basic" (click)="openEditProfileDialog()">
+                Edit Profile
+            </button>
+        </mat-card-actions>
+    </mat-card>
+</div>
+<app-favorites></app-favorites>

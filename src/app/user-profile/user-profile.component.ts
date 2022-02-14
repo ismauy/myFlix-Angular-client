@@ -33,21 +33,18 @@ export class UserProfileComponent implements OnInit {
     let user = JSON.parse(localStorage.getItem('user') || '');
     this.fetchApiData.getUser(user.Username).subscribe((resp: any) => {
       this.user = resp;
-
-      console.log(this.user);
     });
   }
 
   //get user's FavoriteMovies from the user's data
   getFavoriteMovies(): void {
     let user = JSON.parse(localStorage.getItem('user') || '');
-    this.fetchApiData.getUserFavorites(user._id).subscribe((resp: any) => {
+    this.fetchApiData.getUserFavorites().subscribe((resp: any) => {
       this.favoriteMovies = resp.FavoriteMovies;
-      console.log(this.favoriteMovies);
       return this.favoriteMovies;
     });
   }
-  openFavouritesDialog(): void {
+  openFavoritesDialog(): void {
     this.dialog.open(FavoritesComponent, {
       width: '100%',
     })
