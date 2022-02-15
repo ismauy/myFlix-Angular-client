@@ -22,17 +22,10 @@ export class NavigationComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  /* opens modal with user details
-
-  movies(): void {
-    this.router.navigate(['movies']);
-  }
-  */
-
   logout(): void {
-    localStorage.clear(); // Clears the local storage so the logged out user can no longer use protected routes
+    localStorage.clear();
     this.snackBar.open("You've been logged out.", 'X', { duration: 4000, panelClass: 'snack-style' });
-    this.router.navigate(['welcome']); // Navigates back to the welcome page so the user must log in again if they wish to continue to use the app   
+    this.router.navigate(['welcome']);
   }
 
 }

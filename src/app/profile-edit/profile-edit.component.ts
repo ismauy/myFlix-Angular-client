@@ -31,12 +31,18 @@ export class ProfileEditComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * use API end-point to edit user profile
+   * @function editUser
+   */
   editUser(): void {
     this.fetchApiData
       .editUser(this.userData)
       .subscribe((res) => {
         this.dialogRef.close();
-        //updating the localstorage with the updated user
+        /**
+         * updating the localstorage with the updated user
+         */
         localStorage.setItem('user', JSON.stringify(res));
         this.snackBar.open('The profile is successfully updated! ', 'Nice', {
           duration: 2000,

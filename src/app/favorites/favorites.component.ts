@@ -15,9 +15,13 @@ export class FavoritesComponent implements OnInit {
 
   ngOnInit(): void {
     this.getMovies();
-    // this.getUserFavorites();
   }
 
+  /**
+   * get an array of the user's favorite movies from user's data
+   * @function getUserFavorites
+   * @returns favorites in json format
+   */
   getUserFavorites(): any {
     this.fetchApiData.getUserFavorites().subscribe((res: any) => {
       this.favorites = this.movies.filter(movie => res.includes(movie._id));
@@ -25,6 +29,12 @@ export class FavoritesComponent implements OnInit {
     });
   }
 
+  /**
+   * use API end-point to delete user favorite
+   * @function deleteFavoriteMovie
+   * @param movie {any}
+   * @returns updated user's favorite movies in json format
+   */
   deleteFavorite(movie: any): void {
     this.fetchApiData.deleteFavoriteMovie(movie._id).subscribe((resp: any) => {
       this.favorites = resp;
@@ -38,6 +48,11 @@ export class FavoritesComponent implements OnInit {
     return this.getUserFavorites();
   }
 
+  /**
+   * use Api call to get data of all movies
+   * @function getAllMovies
+   * @return movies in json format
+   */
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
