@@ -1,5 +1,8 @@
 # MyFlixAngularClient
 
+## Live Version
+https://ismauy.github.io/myFlix-Angular-client/
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.4.
 
 ## Development server
